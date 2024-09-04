@@ -20,30 +20,31 @@ class Node {
 };
 
 // Definimos la clase HashMap
-class hashMap {
+class hashTable {
     
     private: 
         // Vector donde guardaremos todos los nodos (Buckets)
         vector <Node*> buckets;
         
-        int size;
+        int sizee;
         int numBuckets;
         
         double DEFAULT_LOAD_FACTOR = 0.8;
 
-
+        // funcion para calcular el indice del bucket en donde se va a
         int getBucketInd (int key) {
             int hashCode = hash<int>()(key);
             return hashCode % numBuckets;
         }
     
     public:
-        hashMap () {
-            numBuckets = 20;
+        hashTable () {
+            int sizee = 0;
+            numBuckets = 5;
             buckets.resize(numBuckets);
 
             cout << "HashMap created" << endl;
-            cout << "Number of pairs in the Map: " << size << endl;
+            cout << "Number of pairs in the Map: " << sizee << endl;
             cout << "Size of Map: " << numBuckets << endl;
             cout << "Default Load Factor : " << DEFAULT_LOAD_FACTOR << endl;
         }
@@ -52,8 +53,9 @@ class hashMap {
             int bucketIndex = getBucketInd(key);
             Node* head = buckets [bucketIndex];
 
+
             while ( head != NULL) {
-                if (head -> key = key) {
+                if (head -> key == key) {
                     head -> value = value;
                     return;
                 }
@@ -68,10 +70,13 @@ class hashMap {
 
             cout << "Pair(" << key << ", " << value << ") inserted successfully." << endl;
 
-            size ++;
-            double loadFactor = (1 * size) / numBuckets;
+            sizee = sizee +1;
+
+            double loadFactor = (1 * sizee) / numBuckets;
 
             cout << "Current Load factor = " << loadFactor << endl;
+            cout << sizee << endl;
+            cout << numBuckets << endl;
 
             if (loadFactor > DEFAULT_LOAD_FACTOR) {
                 cout << loadFactor << " is greater than " << DEFAULT_LOAD_FACTOR << endl;
@@ -81,7 +86,7 @@ class hashMap {
                 cout << "New Size of Map: " << numBuckets << endl;
             }
  
-            cout << "Number of pairs in the Map: " << size << endl;
+            cout << "Number of pairs in the Map: " << sizee << endl;
 
         }
 
@@ -102,7 +107,7 @@ class hashMap {
         // Now size is made zero
         // and we loop through all the nodes in the original bucket list(temp)
         // and insert it into the new list
-        size = 0;
+        sizee = 0;
         numBuckets *= 2;
     
         for (int i = 0; i < temp.size(); i++) {
