@@ -13,3 +13,6 @@ void textToVec (ifstream& text, vector <string>& vec){
 
 };
 
+bool mcodeExists (string str, string substr) {
+    return str.find(substr) != string::npos;
+};
