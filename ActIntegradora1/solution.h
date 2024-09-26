@@ -46,19 +46,44 @@ void stringCount (string& str, string& substr){
     cout << "  chars from "<< start << " to " << end << endl;
 };
 
+// Returns the largest substring between 2 strings
+string findLargestSubstr(string& str1, string& str2){
+    int strlength1 = str1.length();
+    int strlength2 = str2.length();
+    int maxLength = 0;
+    int endIdx = 0;
+
+    vector<vector<int>> dp(strlength1 + 1, vector<int>(strlength2 + 1, 0));
+
+    for (int i = 1; i <= strlength1; ++i) {
+        for (int j = 1; j <= strlength2; ++j) {
+            if (str1[i - 1] == str2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+
+                if (dp[i][j] > maxLength) {
+                    maxLength = dp[i][j];
+                    endIdx = i;  
+                }
+            }
+        }
+    }
+
+    string longestSubstring = str1.substr(endIdx - maxLength, maxLength);
+    return longestSubstring;
+};
+
 // Find malicious code in a transmission (Part1)
 void malCodeTester(vector <string>& vec, string& malcode1, string& malcode2, string& malcode3) {
     string transm;
     string malcode;
     int flags[3] = {0,0,0};
-    int line = 1;
 
     for (int i = 0; i < vec.size(); i++) {
         transm = vec[i];
         
         if (mcodeExists(transm, malcode1) == 1){
             malcode = malcode1;
-            cout << "True  " << malcode << "  line: " << line + i;
+            cout << "True  " << malcode << "  line: " << i + 1;
             stringCount(transm, malcode);
             flags[0] = 1;
         }
@@ -66,14 +91,14 @@ void malCodeTester(vector <string>& vec, string& malcode1, string& malcode2, str
 
         if (mcodeExists(transm, malcode2) == 1){
             malcode = malcode2;
-            cout << "True  " << malcode << "  line: " << line + i;
+            cout << "True  " << malcode << "  line: " << i + 1;
             stringCount(transm, malcode);
             flags[1] = 1;
         }
 
         if (mcodeExists(transm, malcode3) == 1){
             malcode = malcode3;
-            cout << "True  " << malcode << "  line: " << line + i;
+            cout << "True  " << malcode << "  line: " << i + 1;
             stringCount(transm, malcode);
             flags[2] = 1;
         }
@@ -92,9 +117,9 @@ void malCodeTester(vector <string>& vec, string& malcode1, string& malcode2, str
     }
 };
 
+// Finds palindromes and the largest palindromes in a transmission (Part2)
 void palindromesTester (vector <string>& vec){
     string transm;
-    int line = 1;
     string largestPal = " ";
     int lineLargPal;
 
@@ -104,9 +129,9 @@ void palindromesTester (vector <string>& vec){
         if (palindromeExists(transm) == true){
             if (transm.length() > largestPal.length()){
                 largestPal = transm;
-                lineLargPal = line + i;
+                lineLargPal = i + 1;
             }
-            cout << "Palindrome detected ->  " << transm << "  line: " << line +i << endl;
+            cout << "Palindrome detected ->  " << transm << "  line: " << i + 1 << endl;
         }
     }
 
@@ -114,7 +139,34 @@ void palindromesTester (vector <string>& vec){
     stringCount(largestPal, largestPal);
 };
 
-void findTopSubstring (vector <string>& transm1, vector <string>& transm2) {
-    //Solution Part 3
-    
+// Finds the largest substring located in both trasnmissions
+void findTopSubstring (vector <string>& vec1, vector <string>& vec2) {
+    string transm1;
+    string transm2;
+    string larStr = " ";
+    int linet1;
+    int linet2;
+    int idxt1;
+    int idxt2;
+
+    for (int i = 0; i < vec1.size(); i++) {
+        transm1 = vec1[i];
+        for (int ii = 0; ii < vec2.size(); ii++){
+            transm2 = vec2[ii];
+            string str = findLargestSubstr(transm1, transm2);
+            if (str.length() > larStr.length()){
+                larStr = str;
+                linet1 = i + 1;
+                linet2 = ii + 1;
+                idxt1 = i;
+                idxt2 = ii;
+            }
+        }
+    }
+
+    cout << "Largest substring between transmissions:  " << larStr << endl;
+    cout <<"Location in Transmission 1 ->  " << "line:  " << linet1;
+    stringCount(vec1[idxt1], larStr);
+    cout <<"Location in Transmission 2 ->  " << "line:  " << linet2;
+    stringCount(vec2[idxt2], larStr);
 };

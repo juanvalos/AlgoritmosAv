@@ -54,9 +54,8 @@ palindromesTester(vecTrans2);
 cout << "\n" << endl;
 cout << "--------  Largest substring between transmissions --------" << endl;
 cout << "\n" << endl;
-cout << "\n" << endl;
 
-palindromesTester(vecTrans2);
+findTopSubstring(vecTrans1, vecTrans2);
 
 return 0;
 }
