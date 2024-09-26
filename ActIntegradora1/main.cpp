@@ -40,7 +40,7 @@ malCodeTester(vecTrans2, strMcode1, strMcode2, strMcode3);
 
 
 cout << "\n" << endl;
-cout << "-------- Find palindormes in each transmision --------" << endl;
+cout << "-------- Find palindromes in each transmission --------" << endl;
 cout << "\n" << endl;
 
 cout << "          Transmission 1          " << endl;
