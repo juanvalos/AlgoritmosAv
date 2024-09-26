@@ -40,13 +40,22 @@ malCodeTester(vecTrans2, strMcode1, strMcode2, strMcode3);
 
 
 cout << "\n" << endl;
-cout << "-------- Find palindromes in each transmission --------" << endl;
+cout << "--------  Palindromes in each transmission --------" << endl;
 cout << "\n" << endl;
 
 cout << "          Transmission 1          " << endl;
 palindromesTester(vecTrans1);
 cout << "\n" << endl;
 cout << "          Transmission 2          " << endl;
+palindromesTester(vecTrans2);
+
+
+
+cout << "\n" << endl;
+cout << "--------  Largest substring between transmissions --------" << endl;
+cout << "\n" << endl;
+cout << "\n" << endl;
+
 palindromesTester(vecTrans2);
 
 return 0;

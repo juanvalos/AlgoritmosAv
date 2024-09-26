@@ -43,7 +43,7 @@ bool palindromeExists(string str){
 void stringCount (string& str, string& substr){
     size_t start = str.find(substr);
     size_t end = start + substr.length() - 1;
-    cout << "  chars from "<< start << " to " << end << "." << endl;
+    cout << "  chars from "<< start << " to " << end << endl;
 };
 
 // Find malicious code in a transmission (Part1)
@@ -95,21 +95,26 @@ void malCodeTester(vector <string>& vec, string& malcode1, string& malcode2, str
 void palindromesTester (vector <string>& vec){
     string transm;
     int line = 1;
+    string largestPal = " ";
+    int lineLargPal;
 
     for (int i = 0; i < vec.size(); i++){
         transm = vec [i];
 
         if (palindromeExists(transm) == true){
-            cout << "True  " << transm << "  line: " << line +i << endl;
+            if (transm.length() > largestPal.length()){
+                largestPal = transm;
+                lineLargPal = line + i;
+            }
+            cout << "Palindrome detected ->  " << transm << "  line: " << line +i << endl;
         }
-
-        else{
-            cout << "False  " << transm << "  line: " << line +i <<endl;
-        }
-
     }
+
+    cout << "Largest Palindrome in transmission ->  " << largestPal << "  line: " << lineLargPal;
+    stringCount(largestPal, largestPal);
 };
 
-void findTopSubstring (string transm1, string transm2) {
-    //Parte 3
+void findTopSubstring (vector <string>& transm1, vector <string>& transm2) {
+    //Solution Part 3
+    
 };
