@@ -32,9 +32,11 @@ cout << "-------- Find malicious code in each transmission --------" << endl;
 cout << "\n" << endl;
 
 cout << "          Transmission 1          " << endl;
+cout << "\n";
 malCodeTester(vecTrans1, strMcode1, strMcode2, strMcode3);
 cout << "\n" << endl;
 cout << "          Transmission 2          " << endl;
+cout << "\n";
 malCodeTester(vecTrans2, strMcode1, strMcode2, strMcode3);
 
 
@@ -44,9 +46,11 @@ cout << "--------  Palindromes in each transmission --------" << endl;
 cout << "\n" << endl;
 
 cout << "          Transmission 1          " << endl;
+cout << "\n";
 palindromesTester(vecTrans1);
 cout << "\n" << endl;
 cout << "          Transmission 2          " << endl;
+cout << "\n";
 palindromesTester(vecTrans2);
 
 

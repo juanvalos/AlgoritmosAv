@@ -131,11 +131,11 @@ void palindromesTester (vector <string>& vec){
                 largestPal = transm;
                 lineLargPal = i + 1;
             }
-            cout << "Palindrome detected ->  " << transm << "  line: " << i + 1 << endl;
+            cout << "Palindrome detected -> " << transm << "  line: " << i + 1 << endl;
         }
     }
 
-    cout << "Largest Palindrome in transmission ->  " << largestPal << "  line: " << lineLargPal;
+    cout << "Largest Palindrome in transmission -> " << largestPal << "  line: " << lineLargPal;
     stringCount(largestPal, largestPal);
 };
 
@@ -164,9 +164,11 @@ void findTopSubstring (vector <string>& vec1, vector <string>& vec2) {
         }
     }
 
-    cout << "Largest substring between transmissions:  " << larStr << endl;
-    cout <<"Location in Transmission 1 ->  " << "line:  " << linet1;
+    cout << "Largest substring -> " << larStr << endl;
+    cout << "\n";
+    cout <<"Location in Transmission 1 -> " << "line:  " << linet1;
     stringCount(vec1[idxt1], larStr);
-    cout <<"Location in Transmission 2 ->  " << "line:  " << linet2;
+    cout <<"Location in Transmission 2 -> " << "line:  " << linet2;
     stringCount(vec2[idxt2], larStr);
+    cout << "\n";
 };
