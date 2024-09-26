@@ -44,10 +44,10 @@ cout << "-------- Find palindormes in each transmision --------" << endl;
 cout << "\n" << endl;
 
 cout << "          Transmission 1          " << endl;
-malCodeTester(vecTrans1, strMcode1, strMcode2, strMcode3);
+palindromesTester(vecTrans1);
 cout << "\n" << endl;
 cout << "          Transmission 2          " << endl;
-malCodeTester(vecTrans2, strMcode1, strMcode2, strMcode3);
+palindromesTester(vecTrans2);
 
 return 0;
 }

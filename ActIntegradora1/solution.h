@@ -22,15 +22,28 @@ bool mcodeExists (string str, string substr) {
     return str.find(substr) != string::npos;
 };
 
+// Checks if a string is a palindrome
 bool palindromeExists(string str){
+    int  start = 0;
+    int end = str.length() - 1;
+
+    while (start < end) {
+        if (str[start] != str[end]) {
+            return false;
+        }
+        start++;
+        end--;
+    }
+
+    return true;
 
 };
 
 // Shows in terminal where a substring starts and finishes on a certain string
 void stringCount (string& str, string& substr){
-    size_t inicio = str.find(substr);
-    size_t fin = inicio + substr.length() - 1;
-    cout << "  chars from "<< inicio << " to " << fin << "." << endl;
+    size_t start = str.find(substr);
+    size_t end = start + substr.length() - 1;
+    cout << "  chars from "<< start << " to " << end << "." << endl;
 };
 
 // Find malicious code in a transmission (Part1)
@@ -79,11 +92,24 @@ void malCodeTester(vector <string>& vec, string& malcode1, string& malcode2, str
     }
 };
 
-void findPalindomesTester (vector <string>& vec){
+void palindromesTester (vector <string>& vec){
     string transm;
-    int flag = 0;
+    int line = 1;
 
     for (int i = 0; i < vec.size(); i++){
+        transm = vec [i];
+
+        if (palindromeExists(transm) == true){
+            cout << "True  " << transm << "  line: " << line +i << endl;
+        }
+
+        else{
+            cout << "False  " << transm << "  line: " << line +i <<endl;
+        }
 
     }
+};
+
+void findTopSubstring (string transm1, string transm2) {
+    //Parte 3
 };
