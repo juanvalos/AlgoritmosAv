@@ -15,11 +15,11 @@ ifstream mcode1;
 ifstream mcode2;
 ifstream mcode3;
 
-transmission1.open("transmission1.txt"); //open file
-transmission2.open("transmission2.txt"); //open file
-mcode1.open("mcode1.txt"); //open file
-mcode2.open("mcode2.txt"); //open file
-mcode3.open("mcode3.txt"); //open file
+transmission1.open("transmission1.txt");
+transmission2.open("transmission2.txt");
+mcode1.open("mcode1.txt");
+mcode2.open("mcode2.txt");
+mcode3.open("mcode3.txt");
 
 txtToVec(transmission1, vecTrans1);
 txtToVec(transmission2, vecTrans2);
